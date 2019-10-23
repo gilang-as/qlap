@@ -1,0 +1,47 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# **** INDEX ****
+RewriteRule ^$ index.php [QSA]
+# **** KATEGORI ****
+RewriteRule ^kategori$ kategori.php [QSA]
+# **** KECAMATAN ****
+RewriteRule ^kecamatan$ kecamatan.php [QSA]
+RewriteRule ^kecamatan/([A-Za-z0-9_-]+)$ kecamatan.php?slug=$1 [QSA]
+# **** PNEL ****
+RewriteRule ^panel$ panel.php [QSA]
+RewriteRule ^lapor$ lapor.php [QSA]
+RewriteRule ^lapor/tambah$ lapor.php?halaman=tambah [QSA]
+
+RewriteRule ^panel/pengaturan$ panel.php?halaman=pengaturan [QSA]
+
+RewriteRule ^panel/laporan$ panel.php?halaman=laporan [QSA]
+RewriteRule ^panel/laporan/detail/([A-Za-z0-9_-]+)$ panel.php?halaman=laporan&tipe=detail&id=$1 [QSA]
+RewriteRule ^panel/laporan/status/([A-Za-z0-9_-]+)$ panel.php?halaman=laporan&tipe=status&id=$1 [QSA]
+
+RewriteRule ^panel/kecamatan$ panel.php?halaman=kecamatan [QSA]
+RewriteRule ^panel/kecamatan/tambah$ panel.php?halaman=kecamatan&tipe=tambah [QSA]
+RewriteRule ^panel/kecamatan/ubah/([A-Za-z0-9_-]+)$ panel.php?halaman=kecamatan&tipe=ubah&id=$1 [QSA]
+RewriteRule ^panel/kecamatan/informasi/([A-Za-z0-9_-]+)$ panel.php?halaman=kecamatan&tipe=informasi&id=$1 [QSA]
+RewriteRule ^panel/kecamatan/hapus/([A-Za-z0-9_-]+)$ panel.php?halaman=kecamatan&tipe=hapus&id=$1 [QSA]
+
+RewriteRule ^panel/kategori$ panel.php?halaman=kategori [QSA]
+RewriteRule ^panel/kategori/tambah$ panel.php?halaman=kategori&tipe=tambah [QSA]
+RewriteRule ^panel/kategori/ubah/([A-Za-z0-9_-]+)$ panel.php?halaman=kategori&tipe=ubah&id=$1 [QSA]
+RewriteRule ^panel/kategori/hapus/([A-Za-z0-9_-]+)$ panel.php?halaman=kategori&tipe=hapus&id=$1 [QSA]
+
+RewriteRule ^panel/pengguna$ panel.php?halaman=pengguna [QSA]
+RewriteRule ^panel/pengguna/tambah$ panel.php?halaman=pengguna&tipe=tambah [QSA]
+RewriteRule ^panel/pengguna/ubah/([A-Za-z0-9_-]+)$ panel.php?halaman=pengguna&tipe=ubah&id=$1 [QSA]
+RewriteRule ^panel/pengguna/hapus/([A-Za-z0-9_-]+)$ panel.php?halaman=pengguna&tipe=hapus&id=$1 [QSA]
+# **** AKUN ****
+RewriteRule ^akun$ akun.php [QSA]
+RewriteRule ^akun/masuk$ akun.php?halaman=masuk [QSA]
+RewriteRule ^akun/lupa-sandi$ akun.php?halaman=lupa-sandi [QSA]
+RewriteRule ^akun/verifikasi$ akun.php?halaman=verifikasi [QSA]
+RewriteRule ^akun/kirim$ akun.php?halaman=kirim [QSA]
+RewriteRule ^akun/keluar$ akun.php?halaman=keluar [QSA]
+RewriteRule ^akun/daftar$ akun.php?halaman=daftar [QSA]
